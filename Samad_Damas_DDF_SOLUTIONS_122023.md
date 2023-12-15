@@ -1,6 +1,6 @@
 # Introdução
 
-Durante a resolução desse case, após algumas tentativas, resolvi seguir com uma abordagem alternativa para algumas questões, mas que ainda demonstrassem meu conhecimento na área de dados. Na descrição dos itens abaixo, comento mais claramente sobre minha linha de recionício e a abordagem que tomei para solucionar os desafios propostos e problemas identificados durante o processo.
+Durante a resolução desse case, após algumas tentativas, resolvi seguir com uma abordagem alternativa para algumas questões, mas que ainda demonstrassem meu conhecimento na área de dados. Na descrição dos itens abaixo, comento mais claramente sobre minha linha de raciocínio e a abordagem que tomei para solucionar os desafios propostos e problemas identificados durante o processo.
 
 ## Item 1
 Para o item 1, realizei a gravação apresentando qual seria minha abordagem para propor uma solução de estruturação da plataforma da dadosfera que atendesse a necessidade do cliente e o objetivo de se ter a presença de modelos de IA para melhorar a experiência de compra dos clientes. Apresentei dois cenários, substituindo parcial e completamente a arquitetura atual do cliente. O vídeo está disponível no Youtube, no formato _não listado_.
