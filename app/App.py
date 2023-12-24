@@ -9,7 +9,8 @@ from bokeh.models import ColumnDataSource
 # Load data
 @st.cache_data
 def load_data():
-    return pd.read_csv('assets/sample.csv')
+    sample = Path(__file__).resolve().parent / "assets" / "sample.csv"
+    return pd.read_csv(sample)
 
 # Calculate similarity
 def calculate_similarity(data):
