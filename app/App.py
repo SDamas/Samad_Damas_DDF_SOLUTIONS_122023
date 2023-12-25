@@ -88,47 +88,25 @@ def main():
     # User input
     product_name = st.selectbox("Product Name", data['Title'])
 
-    url = "https://stablediffusionapi.com/api/v3/text2img"
+    # If the 'Generate Image' button is clicked and a product is selected, initiate an API call to generate the corresponding image.
+    if st.button("Generate Image") and product_selected:
+        try:
+            client = OpenAI(api_key=st.secrets["API_KEY"])
 
-    payload = json.dumps({
-        "key": st.secrets["API_KEY"],
-        "prompt": product_name,
-        "negative_prompt": None,
-        "width": "512",
-        "height": "512",
-        "samples": "1",
-        "num_inference_steps": "20",
-        "safety_checker": "no",
-        "enhance_prompt": "yes",
-        "seed": None,
-        "guidance_scale": 7.5,
-        "multi_lingual": "no",
-        "panorama": "no",
-        "self_attention": "no",
-        "upscale": "no",
-        "embeddings_model": None,
-        "webhook": None,
-        "track_id": None
-    })
+            response = client.images.generate(
+                model="dall-e-2",
+                prompt=product_selected,
+                n=1,
+                size="1024x1024"
+            )
 
-    headers = {
-    'Content-Type': 'application/json'
-    }
+            image = response.data[0].url
 
-    response = requests.request("POST", url, headers=headers, data=payload)
-    
-    try:
-        data = response.json()
-        
-        if data.get("status") == "error":
-            st.write(data.get("message"))
-        else:
             # Display the image generated
-            st.image(response.json()["output"][0], caption="Product Image", use_column_width=True)
-    except ValueError:
-        st.write("Failed to parse JSON response.")
-    except requests.exceptions.RequestException as e:
-        st.write(f"Request error: {e}")
+            st.image(image, caption="Product Image", use_column_width=True)
+
+        except Exception as e:
+            st.write(f"Error generating image: {e}")
 
 if __name__ == '__main__':
     main()
