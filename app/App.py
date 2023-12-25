@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import requests
+import json
 from pathlib import Path
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
@@ -80,6 +82,43 @@ def main():
     p.scatter('x', 'y', size=8, color='navy', source=source)
 
     st.bokeh_chart(p, use_container_width=True)
+
+    st.title('Bonus: Product Presentation Generator')
+
+    # User input
+    product_name = st.selectbox("Product Name", data['Title'])
+
+    url = "https://stablediffusionapi.com/api/v3/text2img"
+
+    payload = json.dumps({
+        "key": st.secrets["API_KEY"],
+        "prompt": product_name,
+        "negative_prompt": None,
+        "width": "512",
+        "height": "512",
+        "samples": "1",
+        "num_inference_steps": "20",
+        "safety_checker": "no",
+        "enhance_prompt": "yes",
+        "seed": None,
+        "guidance_scale": 7.5,
+        "multi_lingual": "no",
+        "panorama": "no",
+        "self_attention": "no",
+        "upscale": "no",
+        "embeddings_model": None,
+        "webhook": None,
+        "track_id": None
+    })
+
+    headers = {
+    'Content-Type': 'application/json'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+    
+    # Display the image using Streamlit
+    st.image(response.json()["output"][0], caption="Product Image", use_column_width=True)
 
 if __name__ == '__main__':
     main()
