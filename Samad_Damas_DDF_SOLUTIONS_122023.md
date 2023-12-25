@@ -54,6 +54,14 @@ Como finalização do item 4, mantive a primeira abordagem de utilizar os auxíl
 
 ## Item 5
 
-No item 5, segui os passos da documentação apresentada no case, mas em todas as tentativas, meu environment não foi criado. Permaneceu em um loop com o log de "Starting Worker". Talvez seja uma coisa acontecendo geral. Com isso, não consegui prosseguir para finalizar esse item 5. Contudo, fiquei bastante interessado em ver em ação o Data APP e poder testar um pouco. Compreendi os conceitos e os passos necessários para começar as análises dos dados anteriores, e gostaria de ver na prática.
+No item 5, a plataforma ainda parecia estar com um pouco de instabilidade, então prossegui com a resolução local com o streamlit diretamente no meu computador. Meu objetivo foi desenvolver um app que identificaria similaridade entre produtos. Iniciei clonando o template do Data App e instalando as bibliotecas que seriam necessárias para a criação do app. Os dados dos produtos são acessados através do arquivo CSV gerado nas etapas anteriores, com todas as informações. Como bibliotecas, utilizei o [scikit-learn](https://scikit-learn.org/stable/) para machine learning e o ![bokeh](https://bokeh.org/) para visualização gráfica.
 
-![Building environment](images/image-11.png).
+O app analisa a similaridade de produtos à um produto base selecionado pelo usuário. Após a análise, com o scikit-learn, uma lista com os produtos com maior similaridade ao produto base é gerada. Além disso, é identificada a categoria na qual há a maior parte dos produtos com similaridade. Após isso, um scatter plot com os scores de similaridades é gerado com o bokeh, possuindo um tooltip para visualização do produto e categoria que cada ponto representa. 
+
+O app está publicado no Streamlit Community Cloud.
+
+Link para o app: https://similarity-analyzer.streamlit.app/
+
+## Bônus
+
+Para o item bônus, utilizei o ![DALL-E 2](https://openai.com/dall-e-2) da OpenAI como o gerador de imagens dos produtos. A chamada para a API é feita sempre que o usuário seleciona um novo produto para ser apresentado, e o prompt enviado é o título do produto. O item bônus está incluso como uma funcionalidade no app desenvolvido no item 5.
