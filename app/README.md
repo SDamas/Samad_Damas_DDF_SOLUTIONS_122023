@@ -2,4 +2,4 @@ Meu objetivo foi desenvolver um app que identificaria similaridade entre produto
 
 O app analisa a similaridade de produtos à um produto base selecionado pelo usuário. Após a análise, com o scikit-learn, uma lista com os produtos com maior similaridade ao produto base é gerada. Além disso, é identificada a categoria na qual há a maior parte dos produtos com similaridade. Após isso, um scatter plot com os scores de similaridades é gerado com o bokeh, possuindo um tooltip para visualização do produto e categoria que cada ponto representa. 
 
-Link para o app: 
+Link para o app: https://similarity-analyzer.streamlit.app/
