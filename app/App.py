@@ -117,8 +117,18 @@ def main():
 
     response = requests.request("POST", url, headers=headers, data=payload)
     
-    # Display the image using Streamlit
-    st.image(response.json()["output"][0], caption="Product Image", use_column_width=True)
+    try:
+        data = response.json()
+        
+        if data.get("status") == "error":
+            st.write(data.get("message"))
+        else:
+            # Display the image generated
+            st.image(response.json()["output"][0], caption="Product Image", use_column_width=True)
+    except ValueError:
+        st.write("Failed to parse JSON response.")
+    except requests.exceptions.RequestException as e:
+        st.write(f"Request error: {e}")
 
 if __name__ == '__main__':
     main()
