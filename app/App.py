@@ -85,7 +85,7 @@ def main():
     st.title('Bonus: Product Presentation Generator')
 
     # User input
-    product_name = st.selectbox("Product Name", data['Title'])
+    product_selected = st.selectbox("Product Name", data['Title'])
 
     # If the 'Generate Image' button is clicked and a product is selected, initiate an API call to generate the corresponding image.
     if st.button("Generate Image") and product_selected:
