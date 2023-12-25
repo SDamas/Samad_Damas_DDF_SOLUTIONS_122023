@@ -2,4 +2,6 @@ Meu objetivo foi desenvolver um app que identificaria similaridade entre produto
 
 O app analisa a similaridade de produtos à um produto base selecionado pelo usuário. Após a análise, com o scikit-learn, uma lista com os produtos com maior similaridade ao produto base é gerada. Além disso, é identificada a categoria na qual há a maior parte dos produtos com similaridade. Após isso, um scatter plot com os scores de similaridades é gerado com o bokeh, possuindo um tooltip para visualização do produto e categoria que cada ponto representa. 
 
+O app também também possui uma seção de geração de imagens dos produtos, utilizando o ![DALL-E 2](https://openai.com/dall-e-2) da OpenAI. A chamada para a API é feita sempre que o usuário seleciona um novo produto para ser apresentado, e o prompt enviado é o título do produto. Como resultado, a imagem gerada é apresentada em tela.
+
 Link para o app: https://similarity-analyzer.streamlit.app/
